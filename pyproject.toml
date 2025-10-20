@@ -36,6 +36,7 @@ dependencies = [
 # dependencies for building the docs
 docs = [
   "psychopy",
+  "psychopy-plugin-theme",
   "sphinx",
   "furo",
 ]
