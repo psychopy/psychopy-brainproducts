@@ -36,4 +36,4 @@ dependencies = [
 where = ["",]
 
 [project.entry-points."psychopy.hardware"]
-brainproducts = "psychopy-brainproducts.brainproducts"
+brainproducts = "psychopy_brainproducts.brainproducts"
