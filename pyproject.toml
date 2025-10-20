@@ -34,3 +34,6 @@ dependencies = [
 
 [tool.setuptools.packages.find]
 where = ["",]
+
+[project.entry-points."psychopy.hardware"]
+brainproducts = "psychopy-brainproducts.brainproducts"
