@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Brain Products (API) &#8212; Psychopy Plugin Documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=536c50fe" />
+    <link rel="stylesheet" type="text/css" href="../_static/psychopy.css?v=61c18825" />
+    <script src="../_static/documentation_options.js?v=d20be8f5"></script>
+    <script src="../_static/doctools.js?v=b682be12"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="prev" title="Welcome to psychopy-brainproducts’ documentation!" href="../" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-96LHQFPY1F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-96LHQFPY1F');
+    </script>
+
+    <!-- News reel -->
+     <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // get all news reels
+        for (let reel of document.getElementsByClassName("news-reel")) {
+          // get all cards
+          let cards = Array.from(reel.getElementsByClassName("sd-card"))
+          // start off with the first card
+          reel.showItem = 0;
+          // define function to show the next node
+          let update = () => {
+            for (let item of cards) {
+              // get index
+              let index = cards.indexOf(item);
+              // show/hide according to index match
+              if (index === reel.showItem) {
+                console.log("Showing news item:", item)
+                item.style.display = "block";
+              } else {
+                item.style.display = "none";
+              }
+            }
+            // iterate shown index
+            reel.showItem += 1;
+            if (reel.showItem >= cards.length) {
+              reel.showItem -= cards.length;
+            }
+          }
+          // run once now
+          update()
+          // schedule to run every 5s
+          window.setInterval(update, 5000);
+        }
+      }, false);    
+     </script>
+
+    <!-- Matomo -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+      _paq.push(["setCookieDomain", "*.psychopy.org"]);
+      _paq.push(["setDomains", ["*.psychopy.org","*.discourse.psychopy.org"]]);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//analytics.opensciencetools.org/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '3']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//analytics.opensciencetools.org/matomo.php?idsite=3&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+    <!-- End Matomo Code -->
+
+
+  </head><body>
+  
+    <!-- nav bar -->
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand small-logo" href="../">
+          
+          <img src="../_static/navbar_logo_plugin_small.png" alt="PsychoPy Logo">
+          
+        </a>
+        <a class="navbar-brand large-logo" href="../">
+          
+          <img src="../_static/navbar_logo_plugin_large.png" alt="PsychoPy Logo">
+          
+        </a>
+        <!-- <span class="navbar-text navbar-version pull-right"><b></b></span> -->
+      </div>
+
+      <div class="collapse navbar-collapse nav-collapse w-100 pull-right">
+        <ul class="nav navbar-nav ml-auto">
+          
+          
+            
+<!-- insert a regular link -->
+<li>
+    <a href="../download/">
+        Install
+    </a>
+</li>
+
+
+          
+          
+          
+          <li><a href="https://plugins.psychopy.org/directory.html" class="return-btn">plugins.psychopy.org</a></li>
+          
+          </ul>
+        </div>
+    </div>
+  </div>
+
+<!--
+
+   -->
+
+<!-- social media icon bar -->
+
+<div class="social-bar">
+
+<a href="https://github.com/psychopy/psychopy" class="github">
+    <i class="fab fa-github"></i>
+</a>
+
+<a href="https://bsky.app/profile/psychopy.org" class="bluesky">
+    <i class="fab fa-bluesky"></i>
+</a>
+
+<a href="https://www.youtube.com/watch?v=VV6qhuQgsiI&list=PLFB5A1BE51964D587" class="youtube">
+    <i class="fab fa-youtube"></i>
+</a>
+
+<a href="https://www.facebook.com/PsychoPy/" class="facebook">
+    <i class="fab fa-facebook"></i>
+</a>
+
+<a href="https://www.linkedin.com/company/open-science-tools" class="linkedin">
+    <i class="fab fa-linkedin"></i>
+</a>
+
+<a href="https://twitter.com/psychopy" class="twitter">
+    <i class="fab fa-x-twitter"></i>
+</a>
+
+</div>
+
+  
+
+<main>
+  
+  <section id="module-psychopy_brainproducts.brainproducts">
+<span id="brain-products-api"></span><h1>Brain Products (API)<a class="headerlink" href="#module-psychopy_brainproducts.brainproducts" title="Link to this heading">¶</a></h1>
+<p>Python support for <a class="reference external" href="https://www.brainproducts.com">Brain Products GMBH</a> hardware.</p>
+<p>Here we have implemented support for the Remote Control Server application,
+which allows you to control recordings, send annotations etc. all from Python.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="psychopy_brainproducts.brainproducts.RemoteControlServer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psychopy_brainproducts.brainproducts.</span></span><span class="sig-name descname"><span class="pre">RemoteControlServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'127.0.0.1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6700</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">testMode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psychopy_brainproducts.brainproducts.RemoteControlServer" title="Link to this definition">¶</a></dt>
+<dd><p>Provides a remote-control interface to BrainProducts Recorder.</p>
+<p>Example usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">psychopy</span><span class="w"> </span><span class="kn">import</span> <span class="n">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">psychopy.hardware</span><span class="w"> </span><span class="kn">import</span> <span class="n">brainproducts</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">console</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<span class="n">rcs</span> <span class="o">=</span> <span class="n">brainproducts</span><span class="o">.</span><span class="n">RemoteControlServer</span><span class="p">()</span>
+<span class="n">rcs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;testExp&#39;</span><span class="p">,</span>
+         <span class="n">workspace</span><span class="o">=</span><span class="s1">&#39;C:/Vision/Workfiles/Standard Workspace.rwksp&#39;</span><span class="p">,</span>
+         <span class="n">participant</span><span class="o">=</span><span class="s1">&#39;S0021&#39;</span><span class="p">)</span>
+<span class="n">rcs</span><span class="o">.</span><span class="n">openRecorder</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">rcs</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;monitor&#39;</span> <span class="c1"># or &#39;impedance&#39;, or &#39;default&#39;</span>
+<span class="n">rcs</span><span class="o">.</span><span class="n">startRecording</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">rcs</span><span class="o">.</span><span class="n">sendAnnotation</span><span class="p">(</span><span class="s1">&#39;124&#39;</span><span class="p">,</span> <span class="s1">&#39;STIM&#39;</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">rcs</span><span class="o">.</span><span class="n">pauseRecording</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">rcs</span><span class="o">.</span><span class="n">resumeRecording</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">rcs</span><span class="o">.</span><span class="n">stopRecording</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">rcs</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span>  <span class="c1"># stops monitoring mode</span>
+</pre></div>
+</div>
+<dl class="py property">
+<dt class="sig sig-object py" id="psychopy_brainproducts.brainproducts.RemoteControlServer.amplifier">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">amplifier</span></span><a class="headerlink" href="#psychopy_brainproducts.brainproducts.RemoteControlServer.amplifier" title="Link to this definition">¶</a></dt>
+<dd><p>Get/set the amplifier to use. Could be one of
+“  [‘actiCHamp’, ‘BrainAmp Family’,”
+“ ‘LiveAmp’, ‘QuickAmp USB’, ‘Simulated Amplifier’,”
+“ ‘V-Amp / FirstAmp’]</p>
+<p>For Liveamp you should also provide the serial number,
+comma separated from the amplifier type.</p>
+<dl class="simple">
+<dt>Examples:</dt><dd><p>rcs = RemoteControlServer()
+rcs.amplifier = ‘LiveAmp’, ‘LA-05490-0200’
+# OR
+rcs.amplifier = ‘actiCHamp’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_brainproducts.brainproducts.RemoteControlServer.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#psychopy_brainproducts.brainproducts.RemoteControlServer.close" title="Link to this definition">¶</a></dt>
+<dd><p>Closes the recording and deletes all associated workspace
+variables (e.g. when a participant has been completed)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_brainproducts.brainproducts.RemoteControlServer.dcReset">
+<span class="sig-name descname"><span class="pre">dcReset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#psychopy_brainproducts.brainproducts.RemoteControlServer.dcReset" title="Link to this definition">¶</a></dt>
+<dd><p>Use this to reset any DC offset that might have accumulated
+if you aren’t using a high-pass filter</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="psychopy_brainproducts.brainproducts.RemoteControlServer.expName">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">expName</span></span><a class="headerlink" href="#psychopy_brainproducts.brainproducts.RemoteControlServer.expName" title="Link to this definition">¶</a></dt>
+<dd><p>Get/set the name of the experiment or study (string)</p>
+<p>The name will make up the first part of the EEG filename.</p>
+<p>Example Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rcs</span><span class="o">.</span><span class="n">expName</span> <span class="o">=</span> <span class="s1">&#39;MyTestStudy&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="psychopy_brainproducts.brainproducts.RemoteControlServer.mode">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mode</span></span><a class="headerlink" href="#psychopy_brainproducts.brainproducts.RemoteControlServer.mode" title="Link to this definition">¶</a></dt>
+<dd><p>Get/set the current mode.</p>
+<p>Mode is a string that can be one of:</p>
+<ul class="simple">
+<li><p>‘default’ or ‘def’ or None will exit special modes</p></li>
+<li><p>‘impedance’ or ‘imp’ for impedance checking</p></li>
+<li><p>‘monitoring’ or ‘mon’</p></li>
+<li><p>‘test’ or ‘tes’ to go into test view</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_brainproducts.brainproducts.RemoteControlServer.open">
+<span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">participant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">workspace</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psychopy_brainproducts.brainproducts.RemoteControlServer.open" title="Link to this definition">¶</a></dt>
+<dd><p>Opens a study/workspace on the RCS server</p>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>expName<span class="classifier">str</span></dt><dd><p>Name of the experiment. Will make up the first part of the
+EEG filename.</p>
+</dd>
+<dt>participant<span class="classifier">str</span></dt><dd><p>Participant identifier. Will make up the second part of the
+EEG filename.</p>
+</dd>
+<dt>workspace<span class="classifier">str</span></dt><dd><p>The full path to the workspace file (.rwksp), with forward slashes
+as path separators. e.g. “c:/myFolder/mySetup.rwksp”</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_brainproducts.brainproducts.RemoteControlServer.openRecorder">
+<span class="sig-name descname"><span class="pre">openRecorder</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#psychopy_brainproducts.brainproducts.RemoteControlServer.openRecorder" title="Link to this definition">¶</a></dt>
+<dd><p>Opens the Recorder application from the Remote Control.</p>
+<p>Neat, huh?!</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="psychopy_brainproducts.brainproducts.RemoteControlServer.overwriteProtection">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">overwriteProtection</span></span><a class="headerlink" href="#psychopy_brainproducts.brainproducts.RemoteControlServer.overwriteProtection" title="Link to this definition">¶</a></dt>
+<dd><p>An attribute to get/set whether the overwrite protection is turned on.</p>
+<p>When checking the attribute the state of <cite>rcs.overwriteProtection</cite> a call will be
+made to the RCS and the report is based on the response. There is also a
+variable <cite>rcs._overwriteProtection</cite> that is simply the stored state from the
+most recent call and does not make any further communication with the RCS itself.</p>
+<p>Usage example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rcs</span><span class="o">.</span><span class="n">overwriteProtection</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># set it to be on</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rcs</span><span class="o">.</span><span class="n">overwriteProtection</span><span class="p">)</span>  <span class="c1"># print current state</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="psychopy_brainproducts.brainproducts.RemoteControlServer.participant">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">participant</span></span><a class="headerlink" href="#psychopy_brainproducts.brainproducts.RemoteControlServer.participant" title="Link to this definition">¶</a></dt>
+<dd><p>Get/set the participant identifier (a string or numeric).</p>
+<p>This identifier will make up the center part of the EEG filename.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_brainproducts.brainproducts.RemoteControlServer.pauseRecording">
+<span class="sig-name descname"><span class="pre">pauseRecording</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#psychopy_brainproducts.brainproducts.RemoteControlServer.pauseRecording" title="Link to this definition">¶</a></dt>
+<dd><p>Pause recording EEG without ending the session.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_brainproducts.brainproducts.RemoteControlServer.resumeRecording">
+<span class="sig-name descname"><span class="pre">resumeRecording</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#psychopy_brainproducts.brainproducts.RemoteControlServer.resumeRecording" title="Link to this definition">¶</a></dt>
+<dd><p>Resume a paused recording</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_brainproducts.brainproducts.RemoteControlServer.sendAnnotation">
+<span class="sig-name descname"><span class="pre">sendAnnotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">annotation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">annType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psychopy_brainproducts.brainproducts.RemoteControlServer.sendAnnotation" title="Link to this definition">¶</a></dt>
+<dd><p>Sends a message to be logged on the Recorder.</p>
+<p>The timing of annotations may be imprecise and this
+should not be trusted as a method of sending sync triggers.</p>
+<p>Annotations can contain any ASCII characters except for “;”</p>
+<section id="id1">
+<h2>Parameters<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>annotation<span class="classifier">string</span></dt><dd><p>The description text to be sent in the annotation.</p>
+</dd>
+<dt>annType<span class="classifier">string</span></dt><dd><p>The category of the annotation which are user-defined
+strings (e.g. stimulus, response)</p>
+</dd>
+</dl>
+<p>Example usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rcs</span><span class="o">.</span><span class="n">sendAnnotation</span><span class="p">(</span><span class="s2">&quot;face003&quot;</span><span class="p">,</span> <span class="s2">&quot;stimulus&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_brainproducts.brainproducts.RemoteControlServer.sendRaw">
+<span class="sig-name descname"><span class="pre">sendRaw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkOutput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'OK'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psychopy_brainproducts.brainproducts.RemoteControlServer.sendRaw" title="Link to this definition">¶</a></dt>
+<dd><p>A helper function to send raw messages (strings) to the RCS.</p>
+<p>This is normally only used for debugging purposes and is not
+needed by most users.</p>
+<section id="id2">
+<h2>Parameters<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>message<span class="classifier">string</span></dt><dd><p>The string that will be sent</p>
+</dd>
+<dt>checkOutput<span class="classifier">string (default=’OK’)</span></dt><dd><p>If a value is provided then this will be checked for by
+this function. If no check is needed then set checkOutput=None</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_brainproducts.brainproducts.RemoteControlServer.startRecording">
+<span class="sig-name descname"><span class="pre">startRecording</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#psychopy_brainproducts.brainproducts.RemoteControlServer.startRecording" title="Link to this definition">¶</a></dt>
+<dd><p>Start recording EEG.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_brainproducts.brainproducts.RemoteControlServer.stopRecording">
+<span class="sig-name descname"><span class="pre">stopRecording</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#psychopy_brainproducts.brainproducts.RemoteControlServer.stopRecording" title="Link to this definition">¶</a></dt>
+<dd><p>Stop recording EEG.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="psychopy_brainproducts.brainproducts.RemoteControlServer.timeout">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">timeout</span></span><a class="headerlink" href="#psychopy_brainproducts.brainproducts.RemoteControlServer.timeout" title="Link to this definition">¶</a></dt>
+<dd><p>What is a reasonable timeout in seconds (initially set to 0.5)</p>
+<p>For some systems (e.g. when the RCS is the same machine) you might want
+to set this to a lower value. For an unpredictable or slow network
+connection you might want to set this to a higher value.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="psychopy_brainproducts.brainproducts.RemoteControlServer.version">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">version</span></span><a class="headerlink" href="#psychopy_brainproducts.brainproducts.RemoteControlServer.version" title="Link to this definition">¶</a></dt>
+<dd><p>Reports the version of the RCS application</p>
+<p>Example usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">rcs</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_brainproducts.brainproducts.RemoteControlServer.waitForMessage">
+<span class="sig-name descname"><span class="pre">waitForMessage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">containing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endswith</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psychopy_brainproducts.brainproducts.RemoteControlServer.waitForMessage" title="Link to this definition">¶</a></dt>
+<dd><p>Wait for a message, optionally one that meets certain criteria</p>
+<section id="id3">
+<h2>Parameters<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>containing<span class="classifier">str</span></dt><dd><p>A string the message must contain</p>
+</dd>
+<dt>endswith<span class="classifier">str</span></dt><dd><p>A string the message must end with (ignoring newline characters)</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h2>Returns<a class="headerlink" href="#returns" title="Link to this heading">¶</a></h2>
+<p>The (complete) message string if one was received or None if not</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_brainproducts.brainproducts.RemoteControlServer.waitForState">
+<span class="sig-name descname"><span class="pre">waitForState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stateName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">permitted</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psychopy_brainproducts.brainproducts.RemoteControlServer.waitForState" title="Link to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Helper function to wait for a particular state (or any attribute, for that matter)</dt><dd><p>to have a particular value. Beware this will wait indefinitely, so only call
+if you are confident that the state will eventually arrive!</p>
+</dd>
+</dl>
+<section id="id4">
+<h2>Parameters<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>stateName<span class="classifier">str</span></dt><dd><p>Name of the state (e.g. “applicationState”)</p>
+</dd>
+<dt>permitted<span class="classifier">list</span></dt><dd><p>List of values that are permitted before returning</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="psychopy_brainproducts.brainproducts.RemoteControlServer.workspace">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">workspace</span></span><a class="headerlink" href="#psychopy_brainproducts.brainproducts.RemoteControlServer.workspace" title="Link to this definition">¶</a></dt>
+<dd><p>Get/set the path to the workspace file. An absolute path is required.</p>
+<p>Example Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rcs</span><span class="o">.</span><span class="n">workspace</span> <span class="o">=</span> <span class="s1">&#39;C:/Vision/Worksfiles/testing.rwksp&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+</div>
+<div class="col-md-12 content">
+  <br/><a href="#" class="pull-right">Back to top</a>
+</div>
+<footer class="footer">
+  <div class="container">
+    <span class="pull-right">
+      
+        
+<div id="sourcelink">
+  <a href="https://github.com/psychopy/psychopy/blob/master/docs/source/brainproducts.rst"
+     rel="nofollow">Source</a>
+</div>
+      <br/>
+
+          &copy; 2002-2018 <a href="https://www.peirce.org.uk/">Jonathan Peirce</a><br/>
+          &copy; 2019 <a href="https://opensciencetools.org/">Open Science Tools Ltd.</a><br/><br/>
+        PsychoPy<sup>®</sup> and Pavlovia<sup>®</sup> are registered trademarks of Open Science Tools Ltd.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.1.3.<br/><br/>
+    </span>
+
+    <a href="http://www.nottingham.ac.uk/"><img src="../_static/UoN_Supported_RGB.png", alt="Uni of Nottingham" width=200></a>
+  </div>
+
+</footer>
+  </body>
+</html>
